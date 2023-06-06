@@ -1,5 +1,5 @@
 import React from "react";
-import Expenses from "./components/Expenses";
+import Expenses from "./components/Expenses/Expenses";
 
 const App = () => {
   const expenses = [
@@ -29,14 +29,25 @@ const App = () => {
       date: new Date(2023, 7, 27),
     },
   ];
+
+  // this type of code also works syntax is mention below
+  // return React.createElement(
+  //   "div",
+  //   {},
+  //   React.createElement("h2", {}, "Hello World"),
+  //   React.createElement(Expenses, {expensesList:expenses})
+  // );
+
   return (
-    // returns jsx(javascript extensible markup language)
     <div>
-      <Expenses expensesList={expenses}/>
+      <Expenses expensesList={expenses} />
     </div>
   );
 };
 
 export default App;
 
+// returns jsx(javascript extensible markup language)
 //react uses declarative approach
+// return React.createElement("tag", {attributes of tag}, content between the tag, content between the tag, , , ...)
+// React.createElement also uses the import React from 'react';

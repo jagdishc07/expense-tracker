@@ -13,3 +13,8 @@ export default function ExpenseDate(props) {
     </div>
   );
 }
+
+
+// can't render props.date directly to browser cause its an object
+// so .toISOString method can be used for all date
+
