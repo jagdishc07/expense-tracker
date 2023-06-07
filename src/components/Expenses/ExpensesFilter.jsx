@@ -26,3 +26,5 @@ const ExpensesFilter = (props) => {
 };
 
 export default ExpensesFilter;
+
+//using key props is very important
