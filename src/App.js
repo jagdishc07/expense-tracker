@@ -12,7 +12,7 @@ const dummyExpenses = [
   {
     id: "e2",
     title: "Airline",
-    amount: 800,
+    amount: 80000,
     date: new Date(2023, 9, 8),
   },
   {
