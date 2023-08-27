@@ -22,3 +22,22 @@
   font-weight: bold;
   border-radius: 6px;
 }
+.expenses__filter-container{
+  display: flex;
+}
+
+
+.expenses__filter-container input{
+  font: inherit;
+  padding: 0.3rem 0.2rem;
+  font-weight: bold;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 9rem;
+}
+
+@media screen and (min-width: 432px) {
+  .expenses-filter__control label{
+    margin: 0 0.61rem;
+  }
+}
