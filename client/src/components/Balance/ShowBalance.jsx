@@ -13,25 +13,25 @@ const ShowBalance = (props) => {
     totalIncome = income.reduce((acc, curr) => acc + curr.amount, 0);
     totalExpense = expense.reduce((acc, curr) => acc + curr.amount, 0);
     balance = totalIncome - totalExpense;
-    console.log("Available Balance: ", balance);
-    console.log("Total Income: ", totalIncome);
-    console.log("Total Expense: ", totalExpense);
   }
   return (
     <Card className="show__balance">
       <div className="show__balance-savings">
         <label htmlFor="">
-          Available Balance: {balance}
+          Available Balance:{" "}
+          <span className="show_balance_nums"> ₹{balance}</span>
         </label>
       </div>
       <div className="show__balance-income">
         <label htmlFor="">
-          Total Income: {totalIncome}
+          Total Income:{" "}
+          <span className="show_balance_nums"> ₹{totalIncome}</span>
         </label>
       </div>
       <div className="show__balance-expense">
         <label htmlFor="">
-          Total Expense: {totalExpense}
+          Total Expense:{" "}
+          <span className="show_balance_nums"> ₹{totalExpense}</span>
         </label>
       </div>
     </Card>

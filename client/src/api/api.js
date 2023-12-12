@@ -6,7 +6,7 @@ export const newExpense = async (data) => {
         let response = await axios.post(`${host}/api/newexpense`, data);
         return response;
     } catch (error) {
-        console.log(error);
+        return (error);
     }
 }
 
@@ -15,6 +15,6 @@ export const getExpenses = async () => {
         let response = await axios.get(`${host}/api/newexpense`);
         return response;
     } catch (error) {
-        console.log(error);
+        return (error);
     }
 }

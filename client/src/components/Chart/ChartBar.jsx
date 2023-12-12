@@ -10,7 +10,14 @@ const ChartBar = (props) => {
   return (
     <div className="Chart-bar">
       <div className="chart-bar__inner">
-        <div className="chart-bar__fill" style={{height: barFillHeight}}></div>
+        <div
+          className="chart-bar__fill"
+          style={
+            props.type === "credit"
+              ? { height: barFillHeight }
+              : { height: barFillHeight, backgroundColor: "#FF5252" }
+          }
+        ></div>
       </div>
       <div className="chart-bar__label">{props.label}</div>
     </div>

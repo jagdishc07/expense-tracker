@@ -48,7 +48,8 @@ const ExpenseForm = (props) => {
         type: "debit"
       };
     }
-    await newExpense(expenseData); // this will send data to server
+    const response = await newExpense(expenseData); // this will send data to server
+    console.log(response)
     setEnteredTitle('');
     setEnteredAmount('');
     setEnteredDate('');

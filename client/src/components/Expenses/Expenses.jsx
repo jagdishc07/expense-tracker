@@ -6,26 +6,35 @@ import ExpensesList from "./ExpenseList";
 import ExpensesChart from "./ExpensesChart";
 
 export default function Expenses(props) {
-  const [filteredYear, setFilteredYear] = useState(new Date().getFullYear().toString());
+  const [filterList, setFilterList] = useState(null);
 
-  const filterChangedHandler = (selectedYear) => {
-    setFilteredYear(selectedYear);
+  const filterChangedHandler = (selectedDate) => {
+    if (selectedDate.fromdate || selectedDate.todate) {
+      let newFilteredExpense = props.expensesList.filter((expense) => {
+        return (
+          expense.date.toLocaleDateString("fr-ca") >= selectedDate.fromdate ||
+          expense.date.toLocaleDateString <= selectedDate.todate
+        );
+      });
+      setFilterList(newFilteredExpense);
+    } else {
+      setFilterList(null);
+    }
   };
 
   const filteredExpenses = props.expensesList.filter((expense) => {
-    return expense.date.getFullYear().toString() === filteredYear;
+    return (
+      expense.date.getFullYear().toString() ===
+      new Date().getFullYear().toString()
+    );
   });
-
   return (
     <Card className="expenses">
       <ExpensesFilter
-        selected={filteredYear}
         onChangeFilter={filterChangedHandler}
       />
-      <ExpensesChart expenses={filteredExpenses}/>
-      <ExpensesList items={filteredExpenses} />
+      <ExpensesChart expenses={filterList || filteredExpenses} />
+      <ExpensesList items={filterList || filteredExpenses} />
     </Card>
   );
 }
-
-// using key props is very important to add

@@ -1,43 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import "./ExpensesFilter.css";
 
 const ExpensesFilter = (props) => {
-  // const dropdownChangeHandler = (e) => {
-  //   props.onChangeFilter(e.target.value);
-  // };
+  const [fromdate, setFromDate] = useState(null);
+  const [todate, setToDate] = useState(null);
 
-
-  // code to start a dropdown list from current year
-  // let currentYear = new Date().getFullYear();
-  // let year = Array.from({length: currentYear - 2021}, (_, index) => currentYear - index);
+  useEffect(() => {
+    props.onChangeFilter({
+      fromdate: fromdate,
+      todate: todate,
+    });
+  }, [fromdate, todate]);
 
   return (
     <div className="expenses-filter">
       <div className="expenses-filter__control">
         <label></label>
-        {/* <select value={props.selected} onChange={dropdownChangeHandler}>
-          {year.map(year=>
-            <option key={year} value={year}>{year}</option>
-            )}
-        </select> */}
         <div className="expenses__filter-container">
           <div>
             <label htmlFor="">From</label>
-            <input type="date"
+            <input
+              type="date"
               min="2023-06-01"
               max={new Date().toLocaleDateString("fr-ca")}
-              // value={enteredDate}
-              // onChange={dateChangeHandler}
+              value={fromdate || ""}
+              onChange={(e) => setFromDate(e.target.value)}
             />
           </div>
           <div>
             <label htmlFor="">To</label>
-            <input type="date"
+            <input
+              type="date"
               min="2023-06-02"
               max={new Date().toLocaleDateString("fr-ca")}
-              // value={enteredDate}
-              // onChange={dateChangeHandler}
+              value={todate || ""}
+              onChange={(e) => setToDate(e.target.value)}
             />
           </div>
         </div>
