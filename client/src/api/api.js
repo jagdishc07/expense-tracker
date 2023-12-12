@@ -1,5 +1,6 @@
 import axios from "axios";
-const host = "http://localhost:5000";
+// const host = "http://localhost:5000";
+const host = "https://expense-tracker-jagdish0809.vercel.app/";
 
 export const newExpense = async (data) => {
     try {
